@@ -1,24 +1,31 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+import { v4 as uuidv4 } from 'uuid';
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+import { getLocalStorageValue, setLocalStorageKey, getPalettes, setPalettes, addPalette, initPalettesIfEmpty } from './data-store'
+console.log(uuidv4())
 
-setupCounter(document.querySelector('#counter'))
+class displayPalette {
+  constructor(paletteName, color1, color2, color3, temp){
+    this.uuid = uuidv4(),
+    this.title = paletteName,
+    this.colors = [color1, color2, color3],
+    this.temp = temperature
+  }
+}
+
+const submitFormHandler = (event) => {
+  event.preventDefault()
+  const form = document.getElementById("palette-form")
+  const formData = new formData(form)
+
+  const obj = Object.fromEntries(formData)
+
+  const newDisplay = new displayPalette(obj.paletteName, obj.color1, obj.color2, obj.color3, obj.temperature)
+
+  addPalette(newDisplay);
+}
+
+const button = document.getElementById("button")
+
+// button.addEventListener('click', handleEvent)
+
+console.log(getPalettes())

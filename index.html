@@ -4,10 +4,49 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Palette-Picker</title>
   </head>
   <body>
+
+    <form>
+      <h2>Add A Palette</h2>
+      <label>Palette Title:
+        <input type="text" id="title" name = 'paletteName' required />
+      </label>
+
+      <div>
+      <label>Color #1</label>
+      <input type = 'color' id = 'color-picker' name = 'color1' value = '#c92929'/>
+      <label>Color #2</label>
+      <input type = 'color' id = 'color-picker' name = 'color2' value = '#2f5a8b'/>
+      <label>Color #3</label>
+      <input type = 'color' id = 'color-picker' name = 'color3' value = '#327a5f'/>
+      </div>
+
+
+      
+  
+      
+        <fieldset>
+          <legend>Temperature</legend>
+          <input type="radio" id="Warm" name="temp" value="Warm" />
+          <label for="Warm">Warm</label>
+      
+          <input type="radio" id="Neutral" name="temp" value="Neutral" checked/>
+          <label for="Neutral">Neutral</label>
+        
+          <input type="radio" id="Cool" name="temp" value="Cool" />
+          <label for="Cool">Cool</label>
+        </fieldset>
+      
+
+      
+      <button type="submit">Create The Palette</button>
+    </form>
+
+    <h2>Palettes</h2>
+
     <div id="app"></div>
-    <script type="module" src="/main.js"></script>
+    <script type="module" src="./main.js"></script>
   </body>
 </html>
